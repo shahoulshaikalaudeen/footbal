@@ -1,0 +1,5 @@
+Recuperer les amis de chaque utuilisateur
+SELECT id_amis , prenom ,id_membres FROM membre,amis  WHERE amis.id_membre = 2 AND amis.id_amis = membre.id_membres
+
+Recuperer message
+SSELECT expediteur,id_membres,message,prenom,heure FROM message_recu,membre WHERE message_recu.expediteur = 4 AND membre.id_membres = message_recu.expediteur AND heure > '03:09:20.475450'

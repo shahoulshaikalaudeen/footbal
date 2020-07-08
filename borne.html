@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <meta charset="UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        [class*="col-"] {
+            width: 25%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br><br><br>
+        <div class="row ">
+            <div class="mx-auto">
+                <h2>Borne Automatique</h2>
+            </div>
+
+        </div>
+
+
+        <div class="row pt-3">
+            <div class="mx-auto">
+
+                <strong><label for="premier" id="numero" class="border" style="width:150px;"></label></strong>
+                <button type="button" id="envoie" class="btn btn-primary mb-2 "
+                    style="width: 150px;">Validation</button>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row justify-content-center ">
+
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light " id="un" style="height: 80px;">1</div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light " id="deux" style="height: 80px;">2</div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light " id="trois" style="height: 80px;">3</div>
+
+
+    </div>
+    <div class="row justify-content-center ">
+
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center " id="quatre" style="height: 80px;">
+            4</div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center" id="cinq" style="height: 80px;">5
+        </div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center" id="six" style="height: 80px;">6
+        </div>
+
+
+    </div>
+    <div class="row justify-content-center ">
+
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center " id="sept" style="height: 80px;">
+            7
+        </div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center" id="huit" style="height: 80px;">8
+        </div>
+        <div class="col-md-1 col-sm-1 col-xl-1 btn btn-light justify-content-center" id="neuf" style="height: 80px;">9
+        </div>
+
+
+
+    </div>
+
+    <script>
+        $("#un").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#deux").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#trois").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#quatre").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#cinq").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#six").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+
+        $("#sept").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#huit").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#neuf").click(function () {
+            var a = $(this).html();
+            $('label').append(a);
+
+
+
+        });
+        $("#envoie").click(function () {
+            var a = $("#numero").html();
+            if (a === undefined) {
+                $('label').css('border', 'solid');
+            }
+
+
+
+        });
+
+
+    </script>
+</body>
+
+
+</html>

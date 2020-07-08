@@ -1,0 +1,288 @@
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <meta charset="UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        a:hover {
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div class="sha bg-danger">
+        <div class="container">
+
+            <div class="col-md-12 col-sm-12 d-flex justify-content-center ">
+                <img src="images.png" height="130" alt="CoolBrand">  
+
+
+            </div>
+
+            <div class=" col-md-12 col-sm-12  d-flex justify-content-center">
+                <h1> <strong>ASC GARGES DJIBSON</strong></h1>
+
+
+            </div>
+
+            <nav class="navbar navbar-expand-md navbar-light bg-danger">
+
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <strong> <a href="#/!" class="nav-item nav-link active text-white ">ACCUEIL</a></strong>
+                        <strong><a href="#!classement" class="nav-item nav-link text-white">CLASSEMENT</a></strong>
+                        <strong><a href="#" class="nav-item nav-link text-white">EQUIPE</a></strong>
+                        <strong> <a href="#" class="nav-item nav-link text-white">BILLETERIE</a></strong>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <strong> <a href="#!connexion" class="nav-item nav-link text-white "><i class="fa fa-user "></i>
+                                CONNEXION</a></strong>
+                        <strong> <a href="#!inscription" class="nav-item nav-link text-white">INSCRIPTION</a></strong>
+                        <strong> <a href="#!passeoublie" class="nav-item nav-link text-white d-none">PASSE</a></strong>
+                        <strong> <a href="#!profile" class="nav-item nav-link text-white d-none"
+                                ng-model="afficher">PASSE</a></strong>
+                        <strong> <a href="#!deco" class="nav-item nav-link text-white d-none ">PASSE</a></strong>
+                        <strong> <a href="#!denied" class="nav-item nav-link text-white d-none ">PASSE</a></strong>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="sha bg-danger" ng-view></div>
+    <script>
+        // Nous avons les controller qui appartient a chaque vue c'est à dire a chaque page html 
+        // le contoller permet de gérer les données et les action qui permet de intérargir avec l'utilisateur
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "accuel.html"
+                })
+                .when("/classement", {
+                    templateUrl: "tr.html"
+                })
+                .when("/connexion", {
+                    templateUrl: "connexion.html",
+                    controller: 'connexios'
+
+                })
+                .when("/inscription", {
+                    templateUrl: "inscription.html",
+                    controller: "inscription"
+                })
+                .when("/passeoublie", {
+                    templateUrl: "passeoublie.html"
+                })
+                .when("/profile", {
+                    templateUrl: "profile.html",
+                    controller: 'profile'
+                })
+                .when("/deco", {
+                    templateUrl: "logout.html",
+                    controller: 'deco'
+                })
+                .when("/denied", {
+                    templateUrl: "denied.html",
+                    controller: 'denied'
+                })
+
+
+
+        });
+
+        app.controller('connexios', function ($scope, $http, $location) {
+
+            $scope.myFunc = function () {
+
+                $http({
+                    method: 'POST',
+                    url: 'djibson.php',
+                    data: 'mydata=' + $scope.mails + '&myData=' + $scope.motpasse,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+                }).then(function (res) {
+
+                    $scope.datas = res.data[0];
+                    $scope.datase = res.data[1];
+                    if ($scope.datase == 1) {
+
+                        $location.path('/profile');
+                    }
+
+
+
+
+
+                });
+
+
+            };
+        });
+
+        app.controller('profile', function ($scope, $http, $location) {
+            var heure = '23:41:20.47545';
+            //var interval qui permet  de executer la fonction getmessage tout les 3000 seconde
+            var setinterval = setInterval(getmessage, 3000);
+            var setsinterval = setInterval(getnonvue, 3000);
+            //appel des fonction
+            getprofile();
+            getmessage();
+            getamie();
+            getnonvue();
+
+            function getprofile() {
+                $http.get('proflie.php')
+                    .then(function (response) {
+                        $scope.login = response.data[0];
+                        $scope.prenom = response.data[1];
+                        $scope.nom = response.data[2];
+                        $scope.equipe = response.data[3];
+                        $scope.poste = response.data[4];
+                        $scope.id = response.data[5];
+
+                        if ($scope.login == 0) {
+
+                            $location.path('/denied');
+                        }
+
+                    });
+            }
+            // fonction qui permet de recuperer les messages recû
+            function getmessage() {
+                $http.get('getmessage.php')
+                    .then(function (response) {
+                        $scope.message = response.data[0];
+                    });
+            }
+            //fonction qui permet de recuperer les amis qui spnt en lien avec l'utilisateur connecté 
+            function getamie() {
+
+                $http.get('getamie.php')
+                    .then(function (response) {
+                        $scope.amis = response.data[0];
+                        console.log($scope.amis);
+
+                    });
+            }
+            //fonction pas finit pour recuperer les messages non vue est de affichier bouton Message
+            function getnonvue() {
+                $http.get('getvue.php')
+                    .then(function (response) {
+                        $scope.vue = response.data[0];
+                        console.log($scope.vue);
+                        if ($scope.vue > 0) {
+                            $scope.myObj = {
+                                "color": "black",
+                                "background-color": "red"
+                            }
+                        }
+                        else {
+                            $scope.myObj = {
+                                "color": "white",
+                            }
+                        }
+
+
+                    });
+            }
+
+
+            // fonction qui permet de envoyer des messages vers utilisateur que on est en relation
+            $scope.Envoie = function () {
+                // une fonction ajax qui permet de envoyer des donnée vers le serveur afin qu'il envoie les messages du formularire
+                $http({
+                    method: 'POST',
+                    url: 'message.php',
+                    data: 'nom=' + $scope.recipient + '&prenom=' + $scope.messagese,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+                }).then(function (res) {
+                    $scope.reponse = res.data;
+
+
+                });
+
+
+            };
+            $scope.VUE = function () {
+                // une fonction ajax qui permet de envoyer des donnée vers le serveur afin qu'il envoie les messages du formularire
+                $http({
+                    method: 'POST',
+                    url: 'vue.php?vues=' + 0,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+                }).then(function (res) {
+                    $scope.reponsese = res.data;
+                    console.log($scope.reponsese);
+                });
+
+            };
+
+        });
+        app.controller('inscription', function ($scope, $http) {
+
+
+            $scope.myFunc = function () {
+
+                $http({
+                    method: 'POST',
+                    url: 'inscription.php',
+                    data: 'nom=' + $scope.nom + '&prenom=' + $scope.prenom + '&mail=' + $scope.mailse + '&passe=' + $scope.motdepasse + '&phone=' + $scope.phonenumber,
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+
+                }).then(function (res) {
+                    $scope.reponse = res.data[0];
+                    $scope.response = res.data[1];
+
+
+                });
+
+
+            };
+
+        });
+        app.controller('deco', function ($scope, $http, $location) {
+
+
+            $http.get('logout.php')
+                .then(function (response) {
+
+                    $scope.verification = response.data[0];
+
+                    if ($scope.verification == 1) {
+                        $location.path('/connexion');
+                    }
+
+
+                });
+
+        });
+    </script>
+</body>
+
+
+</html>
